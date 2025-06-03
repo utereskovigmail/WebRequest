@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "9jRbmnxljb0=",
+  "success": true,
+  "projectFilePath": "/Users/utereskovygmail.com/RiderProjects/SP/WebRequest/WebRequest/WebRequest.csproj",
+  "expectedPackageFiles": [
+    "/Users/utereskovygmail.com/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

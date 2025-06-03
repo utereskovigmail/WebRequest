@@ -1,0 +1,17 @@
+/Users/utereskovygmail.com/RiderProjects/SP/WebRequest/WebRequest/bin/Debug/net9.0/WebRequest
+/Users/utereskovygmail.com/RiderProjects/SP/WebRequest/WebRequest/bin/Debug/net9.0/WebRequest.deps.json
+/Users/utereskovygmail.com/RiderProjects/SP/WebRequest/WebRequest/bin/Debug/net9.0/WebRequest.runtimeconfig.json
+/Users/utereskovygmail.com/RiderProjects/SP/WebRequest/WebRequest/bin/Debug/net9.0/WebRequest.dll
+/Users/utereskovygmail.com/RiderProjects/SP/WebRequest/WebRequest/bin/Debug/net9.0/WebRequest.pdb
+/Users/utereskovygmail.com/RiderProjects/SP/WebRequest/WebRequest/obj/Debug/net9.0/WebRequest.GeneratedMSBuildEditorConfig.editorconfig
+/Users/utereskovygmail.com/RiderProjects/SP/WebRequest/WebRequest/obj/Debug/net9.0/WebRequest.AssemblyInfoInputs.cache
+/Users/utereskovygmail.com/RiderProjects/SP/WebRequest/WebRequest/obj/Debug/net9.0/WebRequest.AssemblyInfo.cs
+/Users/utereskovygmail.com/RiderProjects/SP/WebRequest/WebRequest/obj/Debug/net9.0/WebRequest.csproj.CoreCompileInputs.cache
+/Users/utereskovygmail.com/RiderProjects/SP/WebRequest/WebRequest/obj/Debug/net9.0/WebRequest.dll
+/Users/utereskovygmail.com/RiderProjects/SP/WebRequest/WebRequest/obj/Debug/net9.0/refint/WebRequest.dll
+/Users/utereskovygmail.com/RiderProjects/SP/WebRequest/WebRequest/obj/Debug/net9.0/WebRequest.pdb
+/Users/utereskovygmail.com/RiderProjects/SP/WebRequest/WebRequest/obj/Debug/net9.0/WebRequest.genruntimeconfig.cache
+/Users/utereskovygmail.com/RiderProjects/SP/WebRequest/WebRequest/obj/Debug/net9.0/ref/WebRequest.dll
+/Users/utereskovygmail.com/RiderProjects/SP/WebRequest/WebRequest/obj/Debug/net9.0/WebRequest.csproj.AssemblyReference.cache
+/Users/utereskovygmail.com/RiderProjects/SP/WebRequest/WebRequest/bin/Debug/net9.0/Newtonsoft.Json.dll
+/Users/utereskovygmail.com/RiderProjects/SP/WebRequest/WebRequest/obj/Debug/net9.0/WebRequest.csproj.Up2Date
