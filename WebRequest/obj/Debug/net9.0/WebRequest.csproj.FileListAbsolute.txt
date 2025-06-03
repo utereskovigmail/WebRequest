@@ -15,3 +15,4 @@
 /Users/utereskovygmail.com/RiderProjects/SP/WebRequest/WebRequest/obj/Debug/net9.0/WebRequest.csproj.AssemblyReference.cache
 /Users/utereskovygmail.com/RiderProjects/SP/WebRequest/WebRequest/bin/Debug/net9.0/Newtonsoft.Json.dll
 /Users/utereskovygmail.com/RiderProjects/SP/WebRequest/WebRequest/obj/Debug/net9.0/WebRequest.csproj.Up2Date
+/Users/utereskovygmail.com/RiderProjects/SP/WebRequest/WebRequest/obj/Debug/net9.0/WebRequest.sourcelink.json

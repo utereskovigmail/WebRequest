@@ -101,11 +101,16 @@ class Program
             }
             catch (WebException ex)
             {
-                using (var errorResponse = (HttpWebResponse)ex.Response)
-                using (var reader = new StreamReader(errorResponse.GetResponseStream()))
+                using (var stream = ex.Response.GetResponseStream())
+                using (var reader = new StreamReader(stream))
                 {
-                    string errorText = reader.ReadToEnd();
-                    Console.WriteLine("Error: " + errorText);
+                    string responseText = reader.ReadToEnd();
+                    var errorResponse = JsonConvert.DeserializeObject<ApiErrorResponse>(responseText);
+
+                    foreach (var error in errorResponse.Errors)
+                    {
+                        Console.WriteLine($"{error.Key}: {string.Join(", ", error.Value)}");
+                    }
                 }
             }
         }
@@ -144,4 +149,15 @@ class Program
         
         
     }
+    
+    public class ApiErrorResponse
+    {
+        public Dictionary<string, List<string>> Errors { get; set; }
+        public string Type { get; set; }
+        public string Title { get; set; }
+        public int Status { get; set; }
+        public string TraceId { get; set; }
+    }
+
 }
+
