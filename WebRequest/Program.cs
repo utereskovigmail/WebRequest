@@ -9,7 +9,7 @@ class Program
 {
     static void ViewAll()
     {
-        string url = $"https://lohika.itstep.click/api/Users/all";
+        string url = $"https://lohika.itstep.click/api/Categories/list";
 
         var request = (HttpWebRequest)System.Net.WebRequest.Create(url);
         request.Method = "GET";
@@ -17,68 +17,58 @@ class Program
         using var response = (HttpWebResponse)request.GetResponse();
         using var reader = new StreamReader(response.GetResponseStream());
         string data = reader.ReadToEnd();
-
-        // Assuming the API returns a list of users, not a single object
-        var list = JsonConvert.DeserializeObject<List<UserItemModel>>(data);
+        
+        var list = JsonConvert.DeserializeObject<List<Category>>(data);
         foreach (var item in list)
         {
             Console.WriteLine(item);
         }
     }
-    static void ViewById(int id)
-    {
-        string url = $"https://lohika.itstep.click/api/Users/get/{id}";
-
-        var request = (HttpWebRequest)System.Net.WebRequest.Create(url);
-        request.Method = "GET";
-
-        using var response = (HttpWebResponse) request.GetResponse();
-        using var reader = new StreamReader(response.GetResponseStream());
-        string data = reader.ReadToEnd();
-
-        // Assuming the API returns a list of users, not a single object
-        var l = JsonConvert.DeserializeObject<UserItemModel>(data);
-        Console.WriteLine(l);
-    }
     
-    static UserItemModel ReadUserFromConsole()
+    
+    static Category ReadUserFromConsole()
     {
-        UserItemModel user = new UserItemModel();
+        Category cat = new Category();
 
-        Console.Write("First Name: ");
-        user.FirstName = Console.ReadLine();
+        Console.Write("Enter Category Title: ");
+        cat.title = Console.ReadLine();
+        
+        Console.Write("Enter Category UrlSlag: ");
+        cat.urlSlug = Console.ReadLine();
 
-        Console.Write("Second Name: ");
-        user.SecondName = Console.ReadLine();
+        while (true)
+        {
+            try
+            {
+                Console.Write("Enter Category Priority: ");
+                cat.priority = Convert.ToInt32(Console.ReadLine());
+                break;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            
+        }
+        
+        
+        Console.Write("Enter Category image: ");
+        cat.image = Console.ReadLine();
 
-        Console.Write("Email: ");
-        user.Email = Console.ReadLine();
-
-        Console.Write("Phone: ");
-        user.Phone = Console.ReadLine();
-
-        Console.Write("Photo (URL or base64 string): ");
-        user.Photo = Console.ReadLine();
-
-        Console.Write("Password: ");
-        user.Password = Console.ReadLine();
-
-        Console.Write("Confirm Password: ");
-        user.ConfirmPassword = Console.ReadLine();
-
-        return user;
+        return cat;
     }
 
     static void Create()
     {
-        string url = "https://lohika.itstep.click/api/Users/create";
+        string url = "https://lohika.itstep.click/api/Categories/add";
 
-        var request = (HttpWebRequest)System.Net.WebRequest.Create(url);
-        request.Method = "POST";
-        request.ContentType = "application/json";
+        
 
         while (true)
         {
+            var request = (HttpWebRequest)System.Net.WebRequest.Create(url);
+            request.Method = "POST";
+            request.ContentType = "application/json";
             try
             {
                 var user = ReadUserFromConsole();
@@ -106,11 +96,14 @@ class Program
                 {
                     string responseText = reader.ReadToEnd();
                     var errorResponse = JsonConvert.DeserializeObject<ApiErrorResponse>(responseText);
-
-                    foreach (var error in errorResponse.Errors)
-                    {
-                        Console.WriteLine($"{error.Key}: {string.Join(", ", error.Value)}");
-                    }
+                    Console.WriteLine("Error: " + errorResponse.error);
+                    Console.WriteLine(errorResponse.invalid);
+                    
+                    // foreach (var error in errorResponse.Errors)
+                    // {
+                    //     Console.WriteLine($"{error.Key}: {string.Join(", ", error.Value)}");
+                    // }
+                    // Console.WriteLine(responseText);
                 }
             }
         }
@@ -122,7 +115,7 @@ class Program
     {
         while (true)
         {
-            Console.WriteLine("1) Create User; 2) View All Users 3) View user by id 4)break;");
+            Console.WriteLine("1) Create User; 2) View All Users 0)break;");
             int choice = Convert.ToInt32(Console.ReadLine());
             switch (choice)
             {
@@ -133,11 +126,6 @@ class Program
                 case 2:
                     ViewAll();
                 
-                    break;
-                case 3:
-                    Console.WriteLine("Enter ID: ");
-                    int id = Convert.ToInt32(Console.ReadLine());
-                    ViewById(id);
                     break;
                 case 0:
                     return;
@@ -152,11 +140,8 @@ class Program
     
     public class ApiErrorResponse
     {
-        public Dictionary<string, List<string>> Errors { get; set; }
-        public string Type { get; set; }
-        public string Title { get; set; }
-        public int Status { get; set; }
-        public string TraceId { get; set; }
+        public string invalid { get; set; }
+        public string error { get; set; }
     }
 
 }

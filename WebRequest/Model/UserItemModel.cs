@@ -1,12 +1,11 @@
 namespace WebRequest.Model;
 
-public class UserItemModel
+public class Category
 {
-    public string Email { get; set; }
-    public string FirstName { get; set; }
-    public string SecondName { get; set; }
-    public string Photo { get; set; }
-    public string Phone { get; set; }
-    public string Password { get; set; }
-    public string ConfirmPassword { get; set; }
+    public string title {get; set;}
+    public string urlSlug {get; set;}
+    public int priority {get; set;}
+    public string image {get; set;}
+    
+    public override string ToString() => $"{title} - {urlSlug}, {priority} - {image}";
 }
